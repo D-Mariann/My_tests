@@ -77,6 +77,7 @@ def test_photo_of_pets(test_show_my_pets):
 
 def test_descriptions_of_pets(test_show_my_pets):
     """Проверяем, что У всех питомцев есть имя, возраст и порода"""
+    pytest.driver.implicitly_wait(5)
     pytest.driver.find_element(By.LINK_TEXT, 'Мои питомцы').click()
     name = pytest.driver.find_elements(By.XPATH, '//tbody/tr/td[1]')
     breed = pytest.driver.find_elements(By.XPATH, '//tbody/tr/td[2]')
@@ -90,6 +91,7 @@ def test_descriptions_of_pets(test_show_my_pets):
 
 def test_unique_name(test_show_my_pets):
     """Проверяем, что У всех питомцев разные имена"""
+    pytest.driver.implicitly_wait(5)
     unique = []
     name = pytest.driver.find_elements(By.XPATH, '//tbody/tr/td[1]')
 
@@ -103,6 +105,7 @@ def test_unique_name(test_show_my_pets):
 
 
 def test_unique_animals(test_show_my_pets):
+    pytest.driver.implicitly_wait(5)
     """Проверяем, что В списке нет повторяющихся питомцев"""
     name = pytest.driver.find_elements(By.XPATH, '//tbody/tr/td[1]')
     breed = pytest.driver.find_elements(By.XPATH, '//tbody/tr/td[2]')
